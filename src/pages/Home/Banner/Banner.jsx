@@ -26,8 +26,8 @@ const Banner = () => {
           
         </BannerDesign>
       </div>
-      <div id="slide2" className="carousel-item relative w-full">
-        <img src={img2} className="w-full" />
+      <div id="slide2" className="carousel-item relative  w-full">
+        <img src={img2} className="w-full rounded-xl" />
         <div className="absolute flex justify-end transform -translate-y-1/2 left-5 right-5 bottom-0 gap-5">
           <a href="#slide1" className="btn btn-circle">
             ❮
@@ -39,7 +39,7 @@ const Banner = () => {
         <BannerDesign></BannerDesign>
       </div>
       <div id="slide3" className="carousel-item relative w-full">
-        <img src={img3} className="w-full" />
+        <img src={img3} className="w-full rounded-xl" />
         <div className="absolute flex justify-end transform -translate-y-1/2 left-5 right-5 bottom-0 gap-5">
           <a href="#slide2" className="btn btn-circle">
             ❮
@@ -51,7 +51,7 @@ const Banner = () => {
         <BannerDesign></BannerDesign>
       </div>
       <div id="slide4" className="carousel-item relative w-full">
-        <img src={img4} className="w-full" />
+        <img src={img4} className="w-full rounded-xl" />
         <div className="absolute flex justify-end transform -translate-y-1/2 left-5 right-5 bottom-0 gap-5">
           <a href="#slide3" className="btn btn-circle">
             ❮
@@ -63,7 +63,7 @@ const Banner = () => {
         <BannerDesign></BannerDesign>
       </div>
       <div id="slide5" className="carousel-item relative w-full">
-        <img src={img5} className="w-full" />
+        <img src={img5} className="w-full rounded-xl" />
         <div className="absolute flex justify-end transform -translate-y-1/2 left-5 right-5 bottom-0 gap-5">
           <a href="#slide4" className="btn btn-circle">
             ❮
@@ -76,7 +76,7 @@ const Banner = () => {
       </div>
 
       <div id="slide6" className="carousel-item relative w-full">
-        <img src={img6} className="w-full" />
+        <img src={img6} className="w-full rounded-xl" />
         <div className="absolute flex justify-end transform -translate-y-1/2 left-5 right-5 bottom-0 gap-5">
           <a href="#slide5" className="btn btn-circle">
             ❮
