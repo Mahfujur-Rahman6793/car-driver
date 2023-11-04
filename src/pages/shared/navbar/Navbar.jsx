@@ -1,14 +1,16 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import logo from "../../../assets/logo.svg";
 import { AuthContext } from "../../../provider/AuthProvider";
 
 const Navbar = () => {
   const {user,logOut} = useContext(AuthContext);
+  const navigate = useNavigate();
   const handleLogOut = () => {
+    
     logOut()
       .then(() => {
-        // Log-out was successful, you can add any additional logic here
+     
       })
       .catch((error) => {
         console.error("Error during sign out:", error);
@@ -34,18 +36,27 @@ const Navbar = () => {
       {
         user?.email ? (
           <>
-
+          
             <li>
               <Link to={'/bookings'}>My Bookings</Link>
             </li>
             <li>
              <button onClick={handleLogOut}>LogOut</button>
             </li>
+          
+           
           </>
         ) : (
-          <li>
+
+          <>
+
+            <li>
             <Link to={'/login'}>Login</Link>
           </li>
+            <Navigate to={'/'}></Navigate>
+            
+          </>
+          
         )
       }
     </>
