@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import BookingDetails from "./BookingDetails";
-import { key } from 'localforage';
+
 
 const Bookings = () => {
   const { user } = useContext(AuthContext);
@@ -14,6 +14,25 @@ const Bookings = () => {
         setBookings(data);
       });
   }, []);
+
+  const handleDelete = id =>{
+    const proced = confirm('Are you want to delete this services');
+    if(proced){
+      fetch(`http://localhost:5000/checkout/${id}`,{
+        method:'DELETE'
+      })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        if(data.deletedCount>0){
+          alert('deleted successfull')
+          const reaming = bookings.filter(booking=> booking._id !== id);
+          setBookings(reaming);
+        }
+      })
+    }
+
+  }
   return (
     <div>
       <p>Booking Length : {bookings.length}</p>
@@ -38,7 +57,7 @@ const Bookings = () => {
           <tbody>
             {
                 bookings.map(booking=><BookingDetails
-                key={booking._id} booking={booking}>
+                key={booking._id} booking={booking} handleDelete={handleDelete}>
 
                 </BookingDetails>)
             }
