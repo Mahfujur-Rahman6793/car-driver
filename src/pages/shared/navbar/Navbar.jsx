@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../../assets/logo.svg";
+import { AuthContext } from "../../../provider/AuthProvider";
 
 const Navbar = () => {
+  const {user,logOut} = useContext(AuthContext);
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        // Log-out was successful, you can add any additional logic here
+      })
+      .catch((error) => {
+        console.error("Error during sign out:", error);
+      });
+  };
   const navItem = (
     <>
       <li>
@@ -20,6 +31,23 @@ const Navbar = () => {
       <li>
         <Link to={'#'}>Contact</Link>
       </li>
+      {
+        user?.email ? (
+          <>
+
+            <li>
+              <Link to={'/bookings'}>My Bookings</Link>
+            </li>
+            <li>
+             <button onClick={handleLogOut}>LogOut</button>
+            </li>
+          </>
+        ) : (
+          <li>
+            <Link to={'/login'}>Login</Link>
+          </li>
+        )
+      }
     </>
   );
   return (
