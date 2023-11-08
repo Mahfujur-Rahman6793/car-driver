@@ -13,12 +13,10 @@ const CheckOut = () => {
     const form = event.target;
     const name = form.name.value;
     const date = form.date.value;
-    const email = user?.email;
-
     const order = {
       img,
       CustomerName : name,
-      email,
+      email:  user?.email,
       date,
       service:title,
       service_id : _id,
