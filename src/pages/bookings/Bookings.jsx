@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import BookingDetails from "./BookingDetails";
 
@@ -8,12 +8,12 @@ const Bookings = () => {
   const [bookings, setBookings] = useState([]);
   const url = `http://localhost:5000/checkout?email=${user?.email}`;
   useEffect(() => {
-    fetch(url)
+    fetch(url,{credentials:'include'})
       .then((res) => res.json())
       .then((data) => {
         setBookings(data);
       });
-  }, []);
+  }, [url]);
 
   const handleBookingConfirm = id =>{
     const proced = confirm('Are you want to Update this services');
