@@ -75,7 +75,7 @@ const Bookings = () => {
             
               <th>Name</th>
               <th>Job</th>
-              <th>Favorite Color</th>
+              <th>Price</th>
               <th>Status</th>
             </tr>
           </thead>
